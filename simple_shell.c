@@ -1,51 +1,46 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/wait.h>
 #include "main.h"
-
 #define MAX_ARGS 1024
 
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+* main - Entry point for simple shell program
+*
+* Return: Always 0
+*/
+
 
 int main(void)
 {
-char *line;
-char *argv[MAX_ARGS];
-int status, count, pid;
-
-while (1)
+size_t len = 0;
+ssize_t nread;
+char *token;
+char *line = NULL;
+char *cmd_args[MAX_ARGS];
+int count = 0, pid = 0, status;
+while ((nread = getline(&line, &len, stdin)) != -1)
 {
-printf("$ ");
-line = read_line();
-if (line == NULL)
-break;
-count = parse_line(line, argv);
-if (count == 0)
+count = 0;
+token = strtok(line, " \n");
+if (token == NULL)
 continue;
-pid = fork();
-if (pid == -1)
+while (token != NULL)
 {
-perror("Erreur : échec de fork()\n");
-exit(EXIT_FAILURE);
+cmd_args[count] = token;
+count++;
+token = strtok(NULL, " \n");
 }
+cmd_args[count] = NULL;
+pid = fork();
 if (pid == 0)
 {
-execvp(argv[0], argv);
-perror("Erreur : commande introuvable\n");
-exit(EXIT_FAILURE);
+execvp(cmd_args[0], cmd_args);
+fprintf(stderr, "Error: command not found\n");
+exit(1);
 }
 else
 {
 wait(&status);
 }
 }
-
 free(line);
 return (0);
 }

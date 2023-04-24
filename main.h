@@ -1,7 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-char *read_line(void);
-int parse_line(char *line, char **argv);
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 #endif /* MAIN_H */
