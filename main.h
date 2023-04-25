@@ -1,6 +1,3 @@
-#ifndef SIMPLE_SHELL_H
-#define SIMPLE_SHELL_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -11,9 +8,15 @@
 
 #define MAX_ARGS 1024
 
-char **get_path(char **envp);
-void exec_path(char **cmd_args);
-void exit_shell(char *line);
-void env_shell(char **envp);
+typedef struct built_in {
+    char name;
+    int (func)(char args);
+} built_in;
+
+int execute(char args, char envp);
+int execute_built_in(char args);
+int launch_process(char args, char envp);
+int shell_exit(char args);
+int shell_env(char args);
 
 #endif /* SIMPLE_SHELL_H */
