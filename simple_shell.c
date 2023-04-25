@@ -1,10 +1,20 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <errno.h>
+#define MAX_ARGS 100 
+
 
 /**
  * main - Entry point
- *
+ * 
  * Return: Always 0 on success.
  */
+ 
 int main(void)
 {
 	size_t len = 0;
@@ -28,21 +38,33 @@ int main(void)
 	}
 		cmd_args[count] = NULL;
 
+	if (strcmp(cmd_args[0], "exit") == 0)
+		break;
+	else if (strcmp(cmd_args[0], "env") == 0)
+	{
+		char **env = __environ;
+		while (*env != NULL)
+		{
+			printf("%s\n", *env);
+			env++;
+		}
+		continue; 
+	}
+
 	pid = fork();
-		if (pid == 0)
-		{
-			exec_path(cmd_args);
-			exit(127);
-		}
-		else
-		{
-			wait(&status);
-			free(line);
-			line = NULL;
-			len = 0;
-		}
+	if (pid == 0)
+	{
+		execvp(cmd_args[0], cmd_args);
+		fprintf(stderr, "Error: command not found\n");
+		exit(1);
+	}
+	else
+	{
+		wait(&status);
+	}
+
 	}
 
 	free(line);
-	return (0);
+	return 0;
 }
