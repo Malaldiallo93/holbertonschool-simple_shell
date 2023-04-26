@@ -5,6 +5,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include "main.h"
 #include <errno.h>
 #define MAX_ARGS 100 
 

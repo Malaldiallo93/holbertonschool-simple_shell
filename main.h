@@ -1,3 +1,6 @@
+#ifndef MAIN_H
+#define MAIN_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -5,18 +8,8 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <errno.h>
 
-#define MAX_ARGS 1024
-
-typedef struct built_in {
-    char name;
-    int (func)(char args);
-} built_in;
-
-int execute(char args, char envp);
-int execute_built_in(char args);
-int launch_process(char args, char envp);
-int shell_exit(char args);
-int shell_env(char args);
+#define MAX_ARGS 100
 
 #endif /* SIMPLE_SHELL_H */
