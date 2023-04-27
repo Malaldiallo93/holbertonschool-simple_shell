@@ -1,3 +1,5 @@
+(https://images.squarespace-cdn.com/content/v1/60bf70d860f31b4f60455443/5fbe5784-581c-4b7b-931f-8137e8f33476/Holberton+School.png)
+
 # Simple Shell in C #
 
 ## Introduction ##
@@ -37,7 +39,8 @@ The shell waits for the user to enter a command, then reads and executes it usin
 
 ## Example Execution
 
-```$ ./hsh
+```
+$ ./hsh
 $ ls
 README.md hsh main.c main.h
 $ cd ..
