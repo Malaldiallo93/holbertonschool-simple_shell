@@ -60,3 +60,8 @@ In this example, we executed the shell, then used the ls command to display the 
 ## Known Limitations
 
 The shell does not support redirections, pipes, and scripts.
+
+
+# FLOWCHART
+
+![Brainstorming-3](https://user-images.githubusercontent.com/124314236/234964025-4daef500-6d15-4a01-8384-112a49ca4898.jpg)
