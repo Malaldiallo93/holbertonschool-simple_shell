@@ -33,6 +33,7 @@ To run the shell, execute the following command:
 ## File List
 
 `main.h`: Definition of all functions, constants, and structures used in the project.
+
 `main.c`: Main file containing the main function and the implementation of the shell.
 
 ## How to Use the Shell
