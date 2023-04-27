@@ -1,0 +1,51 @@
+.TH MY_SIMPLE_SHELL 1 "2023-04-27" "1.0" "My Simple Shell Manual Page"
+
+.SH NAME
+
+simple_shell - a simple mini shell written in C that allows users to execute system commands.
+
+.SH SYNOPSIS
+
+.B simple_shell
+
+.SH DESCRIPTION
+
+The simple_shell program is a basic command-line shell that allows users to execute system commands such as cd, ls, pwd, etc. It reads input from the user and executes the commands using the execvp function. Built-in commands such as cd, exit, env, setenv, and unsetenv are also supported.
+
+.SH OPTIONS
+
+This program does not accept any command line options.
+
+.SH EXIT STATUS
+
+This program returns 0 on success and a non-zero value on error.
+
+.SH EXAMPLES
+
+.TP
+.BR ./hsh
+Execute the simple_shell program
+.TP
+.BR cd
+Change the current working directory to /home/user
+.TP
+.BR ls
+List the files in the current directory
+.TP
+.BR pwd
+Print the absolute path of the current working directory
+.TP
+.BR exit
+Exit the shell
+.TP
+.BR env
+Print the environment variables
+
+
+.SH BUGS
+
+This shell does not support redirections, pipes, and scripts.
+
+.SH AUTHORS
+
+This program was written by Mohamed Djamaldine Mohamed Malal Diallo.

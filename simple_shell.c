@@ -1,13 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include "main.h"
-#include <errno.h>
-#define MAX_ARGS 100 
 
 
 /**
@@ -67,5 +58,5 @@ int main(void)
 	}
 
 	free(line);
-	return 0;
+	return (0);
 }
