@@ -43,8 +43,8 @@ README.md hsh main.c main.h
 $ cd ..
 $ pwd
 /home/user
-$ exit```
-
+$ exit
+```
 In this example, we executed the shell, then used the ls command to display the files in the current directory. Next, we used the cd command to go to the parent directory, then the pwd command to display the absolute path of the current directory. Finally, we exited the shell using the exit command.
 
 ## Known Limitations
