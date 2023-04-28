@@ -42,7 +42,7 @@ To run the shell, execute the following command:
 
 ## How to Use the Shell
 
-The shell waits for the user to enter a command, then reads and executes it using the `execvp` function. Built-in commands such as `cd`, `exit`, `env`, `setenv`, and `unsetenv` are also supported.
+The shell waits for the user to enter a command, then reads and executes it using the `execvp` function. Built-in commands such as `cd`, `exit` and `env` are also supported.
 
 ## Example Execution
 
